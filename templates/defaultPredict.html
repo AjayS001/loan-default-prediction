@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Bank Loan Defaulter</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/static/images/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 d-flex justify-content-between">
+                        <!-- Logo Area -->
+                        <div class="logo">
+                            
+                        <h1 style="color: rgb(228, 150, 5);">Bank Loan Defaulter</h1>
+                        </div>
+
+                        <!-- Top Contact Info -->
+                        <div class="top-contact-info d-flex align-items-center">
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="25 th Street x complex"><img src="/static/images/core-img/placeholder.png" alt=""> <span>25 th Street Avenue, X complex</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="office@yourfirm.com"><img src="/static/images/core-img/message.png" alt=""> <span>office@yourfirm.com</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="credit-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="creditNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="about">About Us</a></li>
+                                    <li><a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index">Home</a></li>
+                                            <li><a href="about">About Us</a></li>
+                                            <li><a href="services">Services</a></li>
+                                            
+                                            <li><a href="contact">Contact</a></li>
+                                            <li><a href="defaultPredict">Default Predict</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="services">Services</a></li>
+                             
+                                    <li><a href="defaultPredict">Default Prediction</a></li>
+                                    <li><a href="contact">Contact</a></li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="contact">
+                            <a href="#"><img src="/static/images/core-img/call.png" alt=""> +800 49 900 900</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+<!-- Inputs for finding defaulters -->
+<br><br><br><br>
+<div class="container" >
+  <form action="/result" method="POST">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel1">1. Loan applicants reference id(6 digits)</label><br>
+                  <input type="number" id="SK_ID_CURR" min="100000" max="999999" name="SK_ID_CURR" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel2">2. Number of children for the client</label>
+                  <input type="number" id="CNT_CHILDREN" name="CNT_CHILDREN" required>
+              </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel3">3. Income of the client</label><br>
+                  <input type="number" id="AMT_INCOME_TOTAL" step="any" name="AMT_INCOME_TOTAL" required>
+              </div>
+        </div>
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel4">4. How much is the price of goods for which the loan is given to the consumer?</label>
+                  <input type="number" id="AMT_GOODS_PRICE_x" step="any" name="AMT_GOODS_PRICE_x" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel5">5. What is the normalised population of region where client lives?</label>
+                   <input type="number" id="REGION_POPULATION_RELATIVE" min="0.001" max="0.09" step="any" name="REGION_POPULATION_RELATIVE" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel6">6. How many days before the application the person started current employment?</label>
+                   <input type="number" id="DAYS_EMPLOYED" min="0" max="25000" step="any" name="DAYS_EMPLOYED" required>
+            </div>
+        </div>
+
+    </div>  
+    <br>
+    
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="sel7">7. How many days before the application did client change his registration?</label>
+                   <input type="number" id="DAYS_REGISTRATION" min="1" max="20000" step="any" name="DAYS_REGISTRATION" required>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="sel8">8. How many days before the application did client change the identity document which he applied for the loan?</label>
+                   <input type="number" id="DAYS_ID_PUBLISH" min="0" max="9000" step="any" name="DAYS_ID_PUBLISH" required>
+            </div>
+        </div>
+    </div>
+   <br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel9">9. Does client's permanent address region matches contact address region?</label>
+                  
+                   <select  id="REG_REGION_NOT_LIVE_REGION" name="REG_REGION_NOT_LIVE_REGION">
+                       <option value="0">SAME</option>
+                       <option value="1">DIFFERENT</option>
+                   </select>
+            </div>
+        
+
+        
+       </div>
+
+    
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel10">10. Does client's contact address region matches work address region?</label>
+                  
+                   <select id="LIVE_REGION_NOT_WORK_REGION" name="LIVE_REGION_NOT_WORK_REGION">
+                    <option value="0">SAME</option>
+                    <option value="1">DIFFERENT</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel11">11. Does client's permanent address city matches contact address city?</label>
+                  
+                  <select id="REG_CITY_NOT_LIVE_CITY" name="REG_CITY_NOT_LIVE_CITY">
+                    <option value="0">SAME</option>
+                    <option value="1">DIFFERENT</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    
+    <div class="row">
+       <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel12">12. Does client's permanent address city matches work address city?</label>
+                  
+                   <select id="REG_CITY_NOT_WORK_CITY" name="REG_CITY_NOT_WORK_CITY">
+                    <option value="0">SAME</option>
+                    <option value="1">DIFFERENT</option>
+                </select>
+            </div>
+        </div>
+    
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel13">13. Does client's contact address city matches work address city?</label>
+                  
+                   <select id="LIVE_CITY_NOT_WORK_CITY" name="LIVE_CITY_NOT_WORK_CITY">
+                    <option value="0">SAME</option>
+                    <option value="1">DIFFERENT</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel14">14. How many observations of client's social surroundings defaulted on 30 days past due?</label>
+                   <input type="number" id="DEF_30_CNT_SOCIAL_CIRCLE" min="0" max="60" step="any" name="DEF_30_CNT_SOCIAL_CIRCLE" required>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="sel15">15. How many observations of client's social surroundings with observable 60 days passed due default?</label>
+                   <input type="number" id="OBS_60_CNT_SOCIAL_CIRCLE" min="0" max="500" step="any" name="OBS_60_CNT_SOCIAL_CIRCLE" required>
+            </div>
+        </div>
+   
+    </div>
+    <br>
+   
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel16">16. How many observations of client's social surroundings defaulted on 60 days past due?</label>
+                   <input type="number" id="DEF_60_CNT_SOCIAL_CIRCLE" min="0" max="60" step="any" name="DEF_60_CNT_SOCIAL_CIRCLE" required>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel17">17. How many days before application did client change phone?</label>
+                   <input type="number" id="DAYS_LAST_PHONE_CHANGE" min="0" max="6000" step="any" name="DAYS_LAST_PHONE_CHANGE" required>
+            </div>
+        </div>
+    </div>    
+    <br>
+
+  <div class="row">     
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel18">18. Did client provide document 3?</label>
+                   
+                   <select id="FLAG_DOCUMENT_3" name="FLAG_DOCUMENT_3">
+                    <option value="0">NO</option>
+                    <option value="1">YES</option>
+                </select>
+            </div>
+        </div>
+  
+
+    
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel19">19. Did client provide document 6?</label>
+                   
+                   <select id="FLAG_DOCUMENT_6" name="FLAG_DOCUMENT_6">
+                    <option value="0">NO</option>
+                    <option value="1">YES</option>
+                </select> 
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel20">20. Did client provide document 8?</label>
+                  
+                   <select id="FLAG_DOCUMENT_8" name="FLAG_DOCUMENT_8">
+                    <option value="0">NO</option>
+                    <option value="1">YES</option>
+                </select>
+            </div>
+        </div>
+    </div>
+   <br>
+
+   <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel21">21. Number of enquiries to credit bureau about the client one hour before application?</label>
+                   <input type="number" id="AMT_REQ_CREDIT_BUREAU_HOUR" min="0" max="5" step="any" name="AMT_REQ_CREDIT_BUREAU_HOUR" required>
+            </div>
+        </div>
+  
+
+    
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel22">22. Number of enquiries to credit bureau about the client one day before application?</label>
+                   <input type="number" id="AMT_REQ_CREDIT_BUREAU_DAY" min="0" max="5" step="any" name="AMT_REQ_CREDIT_BUREAU_DAY" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel23">23. Number of enquiries to credit bureau about the client one week before application?</label>
+                   <input type="number" id="AMT_REQ_CREDIT_BUREAU_WEEK" min="0" max="9" step="any" name="AMT_REQ_CREDIT_BUREAU_WEEK" required>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row"> 
+       <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel24">24. Number of enquiries to credit bureau about the client one month before application?</label>
+                   <input type="number" id="AMT_REQ_CREDIT_BUREAU_MON" min="0" max="30" step="any" name="AMT_REQ_CREDIT_BUREAU_MON" required>
+            </div>
+        </div>
+ 
+
+   
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel25">25. Number of enquiries to credit bureau about the client three month before application?</label>
+                   <input type="number" id="AMT_REQ_CREDIT_BUREAU_QRT" min="0" max="30" step="any" name="AMT_REQ_CREDIT_BUREAU_QRT" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel26">26. Number of enquiries to credit bureau about the client one year before application?</label>
+                   <input type="number" id="AMT_REQ_CREDIT_BUREAU_YEAR" min="0" max="30" step="any" name="AMT_REQ_CREDIT_BUREAU_YEAR" required>
+                
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel27">27. How much is the annuity of the previous application?</label><br>
+                   <input type="number" id="AMT_ANNUITY_y" name="AMT_ANNUITY_y" required>
+            </div>
+        </div>
+   
+
+    
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel28">28. How much credit did client asked on the previous application?</label><br>
+                   <input type="number" id="AMT_APPLICATION" name="AMT_APPLICATION" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sel29">29. Selling area of sellerplace of the previous application?</label><br>
+                   <input type="number" id="SELLERPLACE_AREA" name="SELLERPLACE_AREA" required>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="sel30">30. How much terms of previous credit at application of the previous application?</label><br>
+                <input type="number" id="CNT_PAYMENT" min="0" max="84" step="any" name="CNT_PAYMENT" required>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="sel31">31. Relative to current application when was the decision about previous application made?</label><br>
+                <input type="number" id="DAYS_DECISION" min="0" max="84" step="any" name="DAYS_DECISION" required>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+    <!-- <input type="button" id="submit" value="Submit"> -->
+    <button type="submit" id="submit">Submit</button>
+</form>
+</div>
+
+<br><br><br><br>
+
+<!--### Inputs for finding defaulters ends here #### -->
+
+
+  <!-- ##### Newsletter Area Start ###### -->
+<section class="newsletter-area section-padding-100 bg-img jarallax" style="background-image: url(/static/images/bg-img/6.jpg);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-lg-8">
+                <div class="nl-content text-center">
+                    <h2>Subscribe to our newsletter</h2>
+                    <form action="#" method="post">
+                        <input type="email" name="nl-email" id="nlemail" placeholder="Your e-mail">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Newsletter Area End ###### -->
+
+<!-- ##### Footer Area Start ##### -->
+<footer class="footer-area section-padding-100-0">
+    <div class="container">
+        <div class="row">
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-100">
+                    <h5 class="widget-title">About Us</h5>
+                    <!-- Nav -->
+                    <nav>
+                        <ul>
+                            <li><a href="#">Homepage</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Services &amp; Offers</a></li>
+                            <li><a href="#">Portfolio Presentation</a></li>
+                            <li><a href="#">The News</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-100">
+                    <h5 class="widget-title">Solutions</h5>
+                    <!-- Nav -->
+                    <nav>
+                        <ul>
+                            <li><a href="#">Our Loans</a></li>
+                            <li><a href="#">Trading &amp; Commerce</a></li>
+                            <li><a href="#">Banking &amp; Private Equity</a></li>
+                            <li><a href="#">Industrial &amp; Factory</a></li>
+                            <li><a href="#">Financial Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-100">
+                    <h5 class="widget-title">Our Loans</h5>
+                    <!-- Nav -->
+                    <nav>
+                        <ul>
+                            <li><a href="#">Our Loans</a></li>
+                            <li><a href="#">Trading &amp; Commerce</a></li>
+                            <li><a href="#">Banking &amp; Private Equity</a></li>
+                            <li><a href="#">Industrial &amp; Factory</a></li>
+                            <li><a href="#">Financial Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-100">
+                    <h5 class="widget-title">Latest News</h5>
+
+                    <!-- Single News Area -->
+                    <div class="single-latest-news-area d-flex align-items-center">
+                        <div class="news-thumbnail">
+                            <img src="/static/images/bg-img/7.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <a href="#">How to get the best loan?</a>
+                            <div class="news-meta">
+                                <a href="#" class="post-author"><img src="/static/images/core-img/pencil.png" alt=""> Jane Smith</a>
+                                <a href="#" class="post-date"><img src="/static/images/core-img/calendar.png" alt=""> Jan 8</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single News Area -->
+                    <div class="single-latest-news-area d-flex align-items-center">
+                        <div class="news-thumbnail">
+                            <img src="/static/images/bg-img/8.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <a href="#">A new way to get a loan</a>
+                            <div class="news-meta">
+                                <a href="#" class="post-author"><img src="/static/images/core-img/pencil.png" alt=""> Jane Smith</a>
+                                <a href="#" class="post-date"><img src="/static/images/core-img/calendar.png" alt=""> Jan 8</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single News Area -->
+                    <div class="single-latest-news-area d-flex align-items-center">
+                        <div class="news-thumbnail">
+                            <img src="/static/images/bg-img/9.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <a href="#">Finance you home</a>
+                            <div class="news-meta">
+                                <a href="#" class="post-author"><img src="/static/images/core-img/pencil.png" alt=""> Jane Smith</a>
+                                <a href="#" class="post-date"><img src="/static/images/core-img/calendar.png" alt=""> Jan 8</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copywrite Area -->
+    <div class="copywrite-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="copywrite-content d-flex flex-wrap justify-content-between align-items-center">
+                        <!-- Footer Logo -->
+                        
+
+                        <!-- Copywrite Text -->
+                        <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> abc@gmail.com <i class="fa fa-heart-o" aria-hidden="true"></i>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ##### Footer Area Start ##### -->
+
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="/static/js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="/static/js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="/static/js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins js -->
+<script src="/static/js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="/static/js/active.js"></script>
+</body>
+
+</html>
